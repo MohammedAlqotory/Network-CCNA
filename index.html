@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Engineering Academy - المرجع الشامل لمهندسي الشبكات (من الصفر للاحتراف)</title>
+    <style>
+        :root {
+            --bg-color: #0b1120;
+            --card-bg: #111c33;
+            --card-border: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-cyan: #38bdf8;
+            --accent-green: #34d399;
+            --accent-orange: #fb923c;
+            --accent-purple: #c084fc;
+            --accent-pink: #f43f5e;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #111c33, #0f172a);
+            border-radius: 18px;
+            border: 1px solid var(--card-border);
+            margin-bottom: 35px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+        }
+        header h1 {
+            color: var(--accent-cyan);
+            font-size: 2.8rem;
+            margin: 0 0 10px 0;
+        }
+        header p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+        .session-section {
+            margin-bottom: 50px;
+        }
+        .section-title {
+            font-size: 1.9rem;
+            color: var(--text-main);
+            margin: 0 0 20px 0;
+            border-bottom: 2px solid var(--card-border);
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        /* نظام المربعات المتجاورة (شرح هندسي بجانب مثال عملي) */
+        .grid-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 900px) {
+            .grid-row { grid-template-columns: 1fr; }
+        }
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            padding: 25px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+        }
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--accent-cyan);
+            margin-bottom: 15px;
+        }
+        .card-title.example {
+            color: var(--accent-orange);
+        }
+        .card-title.master {
+            color: var(--accent-purple);
+        }
+        .sub-box {
+            background-color: #090e1a;
+            border: 1px solid #1a233a;
+            border-radius: 10px;
+            padding: 16px;
+            margin-top: 15px;
+        }
+        ul { padding-right: 20px; color: var(--text-muted); }
+        li { margin-bottom: 8px; }
+        code { background-color: #0369a1; color: #fff; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+            font-size: 1rem;
+            border-top: 1px solid var(--card-border);
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Network Engineering Master Academy</h1>
+            <p>المرجع الهندسي الأقوى من الصفر للاحتراف (CCNA Level) - تغطية شاملة للسيشنات من 1 إلى 6 مع الأمثلة الحية والربط المتكامل</p>
+        </header>
+
+        <!-- ================= SESSION 1 & 2 ================= -->
+        <div class="session-section">
+            <div class="section-title">🌐 السيشن 1 & 2: أساسيات الشبكات، نموذج OSI، وعنونة IPv4 & Subnetting</div>
+            <div class="grid-row">
+                <div class="card">
+                    <div class="card-title">📖 الشرح الهندسي والمفاهيم السادة</div>
+                    <p>• <b>تعريف الشبكة:</b> منظومة ربط أجهزة لتبادل الموارد والبيانات بكفاءة عالية.</p>
+                    <p>• <b>نموذج OSI (7 Layers):</b> تقسيم تنظيمي مهامه من التطبيقات (Layer 7) إلى الإشارات الفيزيائية (Layer 1)، مع وحدات البيانات (PDU): Data -> Segments -> Packets -> Frames -> Bits[cite: 24].</p>
+                    <p>• <b>عنونة IPv4 والـ Subnetting:</b> تقسيم العنوان المكون من 32-bit إلى Network ID و Host ID باستخدام قناع الشبكة (Subnet Mask)، مع استبعاد عنوان الشبكة وعنوان البراودكاست.</p>
+                </div>
+                <div class="card">
+                    <div class="card-title example">💡 تطبيق من أرض الواقع</div>
+                    <div class="sub-box">
+                        <p><b>تصميم شبكة مستشفى:</b> يتم حساب عدد الأجهزة في كل قسم (طوارئ، عيادات، إدارية) وتطبيق حسابات الـ Subnetting بدقة لمنع تداخل العناوين، وضمان عزل كل قسم شبكياً عن الآخر لتأمين ملفات المرضى.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SESSION 3 ================= -->
+        <div class="session-section">
+            <div class="section-title">🚀 السيشن 3: طبقة النقل (Layer 4)، بروتوكولات TCP/UDP، والـ Sockets</div>
+            <div class="grid-row">
+                <div class="card">
+                    <div class="card-title">📖 الشرح الهندسي والمفاهيم السادة</div>
+                    <p>• <b>القاعدة الذهبية:</b> <i>"IP finds the host. Layer 4 finds the application."</i></p>
+                    <p>• <b>TCP vs. UDP:</b> الأول موثوق (Reliable) يستدم 3-Way Handshake (SYN -> SYN+ACK -> ACK) وترويسة متغيرة (20-60 بايت)؛ والثاني سريع وخفيف (Unreliable) بثابت (8 بايت) للإرسال السريع.</p>
+                    <p>• <b>الـ Sockets والبورتات:</b> اتحاد الآي بي مع رقم البورت (مثلاً بورت 80 للـ HTTP وبورت 443 للـ HTTPS وبورت 53 للـ DNS) لإنشاء قناة اتصال فريدة وموجهة للتطبيق الصحيح.</p>
+                </div>
+                <div class="card">
+                    <div class="card-title example">💡 تطبيق من أرض الواقع</div>
+                    <div class="sub-box">
+                        <p><b>تصفح تطبيق بنكي مقابل بث مباراة:</b> عند إدخال بيانات حسابك المالي يتم استخدام <b>TCP عبر بورت 443</b> لضمان عدم ضياع أي بايت؛ بينما عند مشاهدة بث حي للمباراة على يوتيوب يُستخدم <b>UDP</b> لمنع حدوث تأخير (Buffering) حتى لو سقطت بعض الفريمات.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SESSION 4 ================= -->
+        <div class="session-section">
+            <div class="section-title">⚙️ السيشن 4: الـ Switching، الـ VLANs، الـ Access & Trunk، وحماية STP</div>
+            <div class="grid-row">
+                <div class="card">
+                    <div class="card-title">📖 الشرح الهندسي والمفاهيم السادة</div>
+                    <p>• <b>آلية عمل السويتش (Layer 2):</b> يعالج الإطارات (Frames)[cite: 10] ويبني جدول <b>MAC Address Table</b> بالتعلم والفلترة، مع مدة بقاء (Aging Time) افتراضية 300 ثانية[cite: 11].</p>
+                    <p>• <b>الـ VLANs:</b> تقسيم السويتش برمجياً لشبكات افتراضية معزولة لتقليل نطاق البث وزيادة الأمان.</p>
+                    <p>• <b>Access vs. Trunk:</b> بورت Access ينقل فيلان واحدة (Untagged) للأجهزة الطرفية؛ وبورت Trunk ينقل عدة فيلانز عبر كابل واحد بتغليف <code>802.1Q Tagged</code>[cite: 17].</p>
+                    <p>• <b>بروتوكول STP:</b> يمنع حلقات الشبكة (Loops) وعواصف البث عبر غلق المسارات الزائدة مؤقتاً[cite: 21].</p>
+                </div>
+                <div class="card">
+                    <div class="card-title example">💡 تطبيق من أرض الواقع</div>
+                    <div class="sub-box">
+                        <p><b>مبنى إداري متعدد الطوابق:</b> أجهزة الموظفين موصولة بـ <b>Access Ports</b> تابعة لـ VLAN 10، ويتم ربط السويتشات ببعضها عبر كابلات <b>Trunk Ports</b> مع تفعيل الوسم <code>802.1Q</code> وتأمين الشبكة ببروتوكول <b>STP</b> ضد أي أعطال أو حلقات تدميرية[cite: 17, 21].</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SESSION 5 ================= -->
+        <div class="session-section">
+            <div class="section-title">🧭 السيشن 5: التوجيه (Routing Fundamentals, Static & Dynamic Routing, ACLs)</div>
+            <div class="grid-row">
+                <div class="card">
+                    <div class="card-title">📖 الشرح الهندسي والمفاهيم السادة</div>
+                    <p>• <b>دور الراوتر (Layer 3):</b> ربط شبكات مختلفة ببعضها عبر فحص عناوين الـ IP وتوجيه الحزم (Packets) بناءً على جدول التوجيه (Routing Table).</p>
+                    <p>• <b>التوجيه الثابت (Static Routing):</b> كتابة مسارات يدوية على الراوتر باستخدام أمر <code>ip route</code> لتحديد طريق الشبكات البعيدة بدقة.</p>
+                    <p>• <b>التوجيه الديناميكي (Dynamic Routing):</b> تبادل الجداول تلقائياً بين الراوترات باستخدام بروتوكولات مثل <b>OSPF</b> لتحديث المسارات فوراً عند حدوث تغيير.</p>
+                    <p>• <b>قوائم التحكم في الوصول (ACLs):</b> جدار إلكتروني لفلترة الباكتات وحظر أو السماح لآبيات معينة بالمرور لأسباب أمنية.</p>
+                </div>
+                <div class="card">
+                    <div class="card-title example">💡 تطبيق من أرض الواقع</div>
+                    <div class="sub-box">
+                        <p><b>ربط فرع الشركة الرئيسي بفرع آخر في محافظة أخرى:</b> يتم إعداد راوتر كل فرع بروتوكول <b>OSPF</b> ليتعرف تلقائياً على مسارات الفرع الآخر، مع وضع قواعد <b>ACL</b> تمنع قسم المبيعات من الدخول على سيرفرات الموارد البشرية الحساسة.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SESSION 6 ================= -->
+        <div class="session-section">
+            <div class="section-title">🛠️ السيشن 6: خدمات الشبكة المتقدمة (DHCP, DNS, NAT, IPv6, Wireless & Diagnostics)</div>
+            <div class="grid-row">
+                <div class="card">
+                    <div class="card-title">📖 الشرح الهندسي والمفاهيم السادة</div>
+                    <p>• <b>DHCP & DNS:</b> توزيع الآبيات تلقائياً عبر دورة <b>DORA</b> (Discover, Offer, Request, Acknowledge)[cite: 18]، وتحويل الأسماء النصية لعناوين آي بي عبر خوادم DNS[cite: 19].</p>
+                    <p>• <b>NAT / PAT (Network Address Translation):</b> ت與 ترجمة الآبيات الخاصة لعناوين عامة للخروج للإنترنت وتوفير استهلاك الـ IPv4 عبر البورتات[cite: 20].</p>
+                    <p>• <b>IPv6:</b> عنوان بحجم 128-bit بنظام الـ Hexadecimal مع قواعد اختصار الأصفار (::) لحل أزمة نفاذ عناوين الـ IPv4[cite: 22, 23, 24].</p>
+                    <p>• <b>Wireless & Diagnostics:</b> إدارة ترددات الـ Wi-Fi (2.4, 5, 6 GHz) وتأمينها بـ WPA3[cite: 21, 22]، وأوامر التشخيص الفني مثل <code>ping</code> و <code>ipconfig/ip addr</code> و <code>show ip interface brief</code>[cite: 26].</p>
+                </div>
+                <div class="card">
+                    <div class="card-title example">💡 تطبيق من أرض الواقع</div>
+                    <div class="sub-box">
+                        <p><b>تصفح موقع يوتيوب من هاتفك المحمول:</b> يحصل هاتفك على آي بي تلقائياً من خادم الـ <b>DHCP</b>، ويقوم الـ <b>DNS</b> بترجمة اسم الموقع لرقم آي بي، وتتولى تقنية الـ <b>NAT</b> في الراوتر ترجمة الآبيات الخاصة لعامة للوصول للإنترنت بسلاسة تامة[cite: 18, 19, 20].</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= THE ULTIMATE MASTER SCENARIO (ALL SESSIONS INTEGRATED) ================= -->
+        <div class="session-section">
+            <div class="section-title">🎬 الملحمة الكبرى: السيناريو الواقعي الشامل لربط السيشنات الستة معاً (من الصفر للاحتراف)</div>
+            <div class="card" style="border-color: var(--accent-purple);">
+                <div class="card-title master">🔄 رحلة باكت بيانات حقيقية تربط المعرفة الكاملة للشبكات خطوة بخطوة</div>
+                <p>تخيل أنك مهندس شبكات محترف، جالس بجهازك الموصل بشبكة الشركة الداخلية (تحت نطاق Subnet محدد)، وتريد تصفح منصة تعليمية خارجية. دعنا نرى كيف تتكاتف السكاشن الستة لتنفيذ المهمة في جزء من الثانية:</p>
+                
+                <div class="sub-box">
+                    <p><b>1. التشغيل والعنونة المحلية (السيشن 1 & 2 - OSI & Subnetting):</b></p>
+                    <p>يتصل جهازك بالشبكة ويحصل على إعداداته الأساسية وفق تصميم الـ Subnet المسبق، وتتأكد الطبقات الفيزيائية وربط البيانات من سلامة الإشارات الكهربائية والكابلات.</p>
+                </div>
+
+                <div class="sub-box">
+                    <p><b>2. حل الأسماء والـ DHCP (السيشن 6 - DNS & DHCP):</b></p>
+                    <p>بما أنك كتبت اسم الموقع نصياً، يتحرك طلب فوري عبر خدمة الـ <b>DNS</b> لتحويل الاسم إلى عنوان IP حقيقي للخادم الخارجي، مستعيناً بإعدادات الاتصال التي وزعها خادم الـ <b>DHCP</b> عبر دورة الـ DORA[cite: 18, 19].</p>
+                </div>
+
+                <div class="sub-box">
+                    <p><b>3. فتح الجلسة والنقل الآمن (السيشن 3 - Layer 4 - TCP & Ports):</b></p>
+                    <p>يتم اختيار بروتوكول <b>TCP</b> وإجراء المصافحة الثلاثية (3-Way Handshake) مع تحديد بورت الوجهة <code>443</code> للاتصال المشفر، وإنشاء الـ <b>Socket الكامل</b> لتوجيه الداتا للتطبيق الصحيح في متصفحك.</p>
+                </div>
+
+                <div class="sub-box">
+                    <p><b>4. التبديل المحلي، الـ VLANs، والـ Trunk (السيشن 4 - Switching & STP):</b></p>
+                    <p>تخرج البيانات من جهازك في إطار (<b>Frame</b>) عبر <b>Access Port</b> ينتمي لفيلان الموظفين داخل السويتش المحلي. يتعلم السويتش الـ MAC الخاص بك، وتنتقل الداتا عبر كابل <b>Trunk Port</b> محمي بوسم <code>802.1Q</code> وتحت حماية <b>STP</b> للوصول لراوتر الشبكة[cite: 10, 11, 17, 21].</p>
+                </div>
+
+                <div class="sub-box">
+                    <p><b>5. التوجيه الخارجي والترجمة (السيشن 5 & 6 - Routing & NAT):</b></p>
+                    <p>يستلم الراوتر الحزمة (<b>Packet</b>)، ويقوم بتوجيهها عبر جدول التوجيه (<b>Routing Table</b>) باستخدام الـ Static أو الـ OSPF (السيشن 5). وقبل خروج البيانات إلى الإنترنت الواسعة، تقوم تقنية الـ <b>NAT/PAT</b> بترجمة الآبي المحلية الخاصة بك إلى عنوان عام مخصص للخروج (السيشن 6)[cite: 20] لتصل المنصة الخارجية وتعود البيانات بنجاح تام!</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Created by Gemini & The Master Engineer | The Ultimate Network Engineering Master Hub (Zero to Hero)</p>
+        </footer>
+    </div>
+</body>
+</html>
